@@ -201,3 +201,56 @@ void calculateMetrics(const vector<PCB>& pcbs) {
     cout << "Average Turnaround Time: " << averageTurnaroundTime << endl;
     cout << "CPU Utilization: " << cpuUtilization << "%" << endl;
 }
+
+int main() {
+    string filename = "processes.txt";
+    vector<PCB> pcbs = readInputFromFile(filename);
+    int choice;
+    do {
+        cout << "=======================================\n"
+            << "1) First-Come First-Served (FCFS)\n"
+            << "2) Shortest Remaining Time First (SRTF)\n"
+            << "3) Round-Robin (RR)\n"
+            << "4) Exit Program\n"
+            << "Enter your choice: ";
+        cin >> choice;
+        switch (choice) {
+        case 1:
+            FCFS(pcbs);
+            printResults(pcbs);
+            calculateMetrics(pcbs);
+            system("pause");
+            break;
+
+        case 2:
+            SRTF(pcbs);
+            printResults(pcbs);
+            calculateMetrics(pcbs);
+            system("pause");
+            break;
+
+        case 3:
+            cout << "Enter quantum time: ";
+            int quantum;
+            cin >> quantum;
+            RoundRobin(pcbs, quantum);
+            printResults(pcbs);
+            calculateMetrics(pcbs);
+            system("pause");
+            break;
+
+        case 4:
+            cout << "Bye Bye" << endl;
+            system("pause");
+            break;
+
+
+        default:
+            cout << "Invalid Choice" << endl;
+            system("pause");
+            break;
+        }
+    } while (choice != 4);
+
+    return 0;
+}
