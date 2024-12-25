@@ -209,7 +209,7 @@ int main() {
     do {
         cout << "=======================================\n"
             << "1) First-Come First-Served (FCFS)\n"
-            << "2) Shortest Remaining Time First (SRTF)\n"
+            << "2) Shortest Remaining Time First (SRT)\n"
             << "3) Round-Robin (RR)\n"
             << "4) Exit Program\n"
             << "Enter your choice: ";
